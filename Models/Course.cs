@@ -8,7 +8,7 @@ namespace UnicomTICManagementSystem.Models
 {
     internal class Course
     {
-        public string CorseName { get; set; }
-        public int CorseId { get; set; }
+        public string CourseName { get; set; }
+        public int CourseId { get; set; }
     }
 }

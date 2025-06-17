@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using UnicomTICManagementSystem.Controllers;
 using UnicomTICManagementSystem.Models;
-using UnicomTICManagementSystem.Repositories;
+using UnicomTicManagementSystem.Repositories;
 
 namespace UnicomTICManagementSystem.Views
 {
@@ -23,8 +23,17 @@ namespace UnicomTICManagementSystem.Views
         public ManageStudent()
         {
             InitializeComponent();
-            
-            
+            this.TopLevel = false;         // Important
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.Dock = DockStyle.Fill;
+
+            comboBox1.Items.Add("Arts stream");
+            comboBox1.Items.Add("Commerce stream");
+            comboBox1.Items.Add("Maths stream");
+            comboBox1.Items.Add("Scince stream");
+            comboBox1.SelectedIndex = 0;
+
+
 
             StudentController stcontroller = new StudentController();
             List<Student> st = stcontroller.GetStudents();
@@ -32,6 +41,7 @@ namespace UnicomTICManagementSystem.Views
 
             txtN.Text = "";
             txtA.Text = "";
+            txtAge.Text = string.Empty;
         }
 
         
@@ -43,29 +53,61 @@ namespace UnicomTICManagementSystem.Views
         // ADD ===================================================================================================
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Student student = new Student();
-            if (string.IsNullOrWhiteSpace(txtN.Text) || string .IsNullOrWhiteSpace(txtA.Text))
+            
+            if (string.IsNullOrWhiteSpace(txtN.Text) || string.IsNullOrWhiteSpace(txtA.Text) ||
+                string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text))
             {
-                MessageBox.Show("Please Enter the Both name and Address");
+                MessageBox.Show("Please enter Name, Address, Username and Password.");
                 return;
             }
-            student.Name = txtN.Text;
-            student.Address = txtA.Text;
 
+           
+            Student student = new Student
+            {
+                Name = txtN.Text,
+                Address = txtA.Text,
+                Age = int.TryParse(txtAge.Text, out int ageVal) ? ageVal : 0,  
+                Username = textBox1.Text,
+                Password = textBox2.Text,
+                Role = "Student" 
+            };
 
-            StudentController studentController =new StudentController();
-            string outputmessage = studentController.AddStudent(student);
-            DgvStudent.DataSource = studentController;
+            StudentController studentController = new StudentController();
+            string outputmessage = studentController.AddStudentWithUser(student);
+            MessageBox.Show(outputmessage);
 
+          
+            txtN.Text = "";
+            txtA.Text = "";
+            txtAge.Text = "";
+            textBox1.Text = "";
+            textBox2.Text = "";
+
+           
+            List<Student> st = studentController.GetStudents();
+            DgvStudent.DataSource = st;
         }
+
         // UPDATE =================================================================================================
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            Student student = new Student();
-            student.Id = updateStudentId;
-            student.Name = txtN.Text;
-            student.Address = txtA.Text;
+            if (updateStudentId == 0)
+            {
+                MessageBox.Show("Please select a student to update.");
+                return;
+            }
+
+            Student student = new Student
+            {
+                Id = updateStudentId,
+                Name = txtN.Text,
+                Address = txtA.Text,
+                Age = int.TryParse(txtAge.Text, out int ageVal) ? ageVal : 0,
+                Username = textBox1.Text,
+                Password = textBox2.Text,
+                Role = "Student" 
+            };
 
             StudentController stcontroller = new StudentController();
             string updateMessage = stcontroller.UpdateStudent(student);
@@ -73,9 +115,14 @@ namespace UnicomTICManagementSystem.Views
 
             txtN.Text = "";
             txtA.Text = "";
-            List<Student> st = stcontroller.GetAllStudents();
+            txtAge.Text = "";
+            textBox1.Text = "";
+            textBox2.Text = "";
+
+            List<Student> st = stcontroller.GetStudents();
             DgvStudent.DataSource = st;
         }
+
         // DELETE ===================================================================================================
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -83,29 +130,68 @@ namespace UnicomTICManagementSystem.Views
             student.Id = updateStudentId;
 
             StudentController stcontroller = new StudentController();
-            string deleteMessage = stcontroller.deleteStudent(student);
+            string deleteMessage = stcontroller.DeleteStudent(student.Id);
             MessageBox.Show(deleteMessage);
 
             txtN.Text = "";
             txtA.Text = "";
-            List<Student> st = stcontroller.GetAllStudents();
+            txtAge.Text = string.Empty;
+            List<Student> st = stcontroller.GetStudents();
             DgvStudent.DataSource = st;
         }
         // DGV BOX ===================================================================================================
         private void DgvStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var student = (Student)DgvStudent.CurrentRow.DataBoundItem;
-            if (student != null)
-            {
-                updateStudentId = student.Id;
-                txtN.Text = student.Name;
-                txtA.Text = student.Address;
-            }
+           
         }
+
 
         private void ManageStudent_Load(object sender, EventArgs e)
         {
 
+
+        }
+
+        private void txtAge_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DgvStudent_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var student = (Student)DgvStudent.Rows[e.RowIndex].DataBoundItem;
+                if (student != null)
+                {
+                    
+                    txtN.Text = student.Name;
+                    txtA.Text = student.Address;
+                    txtAge.Text = student.Age.ToString();
+                    textBox1.Text = student.Username;
+                    textBox2.Text = student.Password;
+                    
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Form1 Form = new Form1();
+                Form.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error opening Login Form: " + ex.Message);
+            }
         }
     }
 }

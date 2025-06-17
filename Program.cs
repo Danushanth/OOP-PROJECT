@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UnicomTICManagementSystem.Repositories;
 using UnicomTICManagementSystem.Views;
+using UnicomTicManagementSystem.Repositories;
+using SchoolManageSystem.Data;
 
 namespace UnicomTICManagementSystem
 {
-    internal static class Program
+    internal static class Programs
     {
         /// <summary>
         /// The main entry point for the application.
@@ -17,8 +18,8 @@ namespace UnicomTICManagementSystem
         static void Main()
         {
             // Initialize the database and create all tables
-            DatabaseManager.InitializeDatabaseAsync().GetAwaiter().GetResult();
 
+            DatabaseInitializer.CreateTables();
             // Removed: DatabaseManager.CreatTable(); // ❌ This was throwing NotImplementedException
 
             Application.EnableVisualStyles();

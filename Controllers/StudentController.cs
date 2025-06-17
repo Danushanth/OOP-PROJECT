@@ -1,107 +1,164 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UnicomTicManagementSystem.Repositories;
 using UnicomTICManagementSystem.Models;
-using UnicomTICManagementSystem.Repositories;
 
 namespace UnicomTICManagementSystem.Controllers
 {
     internal class StudentController
 
     {
-        // Add =================================================================================================================================================================
-        public string AddStudent(Student st)
+        //  ====================================================================== Add =================================================================================
+        public string AddStudentWithUser(Student student)
         {
-            using (var dbconn = DbConfig.Connection())
+            using (var conn = new SQLiteConnection(@"Data Source=UnicomTic.db;Version=3;"))
             {
-                dbconn.Open();
-
-                string addstudentQuery = "INSERT INTO Students(Name, Address, Age, UserName) VALUES(@name, @address, @age, @username);";
-
-                using (SQLiteCommand insert = new SQLiteCommand(addstudentQuery, dbconn))
+                conn.Open();
+                using (var transaction = conn.BeginTransaction())
                 {
-                    insert.Parameters.AddWithValue("@name", st.Name);
-                    insert.Parameters.AddWithValue("@address", st.Address);
-                    insert.Parameters.AddWithValue("@age", st.Age);
-                    insert.Parameters.AddWithValue("@username", st.UserName);
+                    try
+                    {
+                        
+                        var userCmd = new SQLiteCommand("INSERT INTO Users (Username, Password, Role) VALUES (@Username, @Password, @Role);", conn);
+                        userCmd.Parameters.AddWithValue("@Username", student.Username);
+                        userCmd.Parameters.AddWithValue("@Password", student.Password);
+                        userCmd.Parameters.AddWithValue("@Role", student.Role);
+                        userCmd.ExecuteNonQuery();
 
-                     insert.ExecuteNonQuery();
+                        
+                        student.UserId = (int)conn.LastInsertRowId;
+
+                       
+                        var studentCmd = new SQLiteCommand("INSERT INTO Students (Name, Address, Age, CourseID, UserID) VALUES (@Name, @Address, @Age, @CourseID, @UserID);", conn);
+                        studentCmd.Parameters.AddWithValue("@Name", student.Name);
+                        studentCmd.Parameters.AddWithValue("@Address", student.Address);
+                        studentCmd.Parameters.AddWithValue("@Age", student.Age);
+                        studentCmd.Parameters.AddWithValue("@CourseID", student.CourseId);
+                        studentCmd.Parameters.AddWithValue("@UserID", student.UserId);
+                        studentCmd.ExecuteNonQuery();
+
+                        transaction.Commit();
+                        return "Student and user added successfully.";
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        return $"Error: {ex.Message}";
+                    }
                 }
             }
-            return "Student added successfully";
         }
 
-        //========================================================================================================================================================================
+
+
+        //============================================================================ GET STUDENT =========================================================================================
 
         public List<Student> GetStudents()
         {
-            List<Student> students = new List<Student>();
-            using (var conn = DbConfig.Connection())
+            var students = new List<Student>();
+            using (var conn = new SQLiteConnection(@"Data Source=UnicomTic.db;Version=3;"))
             {
-                
-                string getAllStudentQuery = "SELECT * FROM Students";
-                SQLiteCommand getAllStudentCommand = new SQLiteCommand(getAllStudentQuery, conn);
-
-                var reader = getAllStudentCommand.ExecuteReader();
-                while (reader.Read())
+                conn.Open();
+                var cmd = new SQLiteCommand("SELECT s.StudentID, s.Name, s.Address, s.Age, s.CourseID, u.UserID, u.Username, u.Password, u.Role FROM Students s JOIN Users u ON s.UserID = u.UserID;", conn);
+                using (var reader = cmd.ExecuteReader())
                 {
-                    Student student = new Student();
-                    student.Id = reader.GetInt32(0);
-                    student.Name = reader.GetString(1);
-                    student.UserName = reader.GetString(2);
-                    student.Address = reader.GetString(3);
-                    student.Age = reader.GetInt32(4);
+                    while (reader.Read())
+                    {
+                        students.Add(new Student
+                        {
+                            Id = reader.GetInt32(0),
+                            Name = reader.IsDBNull(1) ? null : reader.GetString(1),
+                            Address = reader.IsDBNull(2) ? null : reader.GetString(2),
+                            Age = reader.IsDBNull(3) ? 0 : reader.GetInt32(3),
+                            CourseId = reader.IsDBNull(4) ? (int?)null : reader.GetInt32(4),
+                            UserId = reader.GetInt32(5),
+                            Username = reader.IsDBNull(6) ? null : reader.GetString(6),
+                            Password = reader.IsDBNull(7) ? null : reader.GetString(7),
+                            Role = reader.IsDBNull(8) ? null : reader.GetString(8)
+                        });
 
-                    students.Add(student);
+                    }
                 }
             }
-
             return students;
         }
-        //Update ==================================================================================================================================================
 
-        public string UpdateStudent(Student st)
+        // ======================================================================== Update ==========================================================================
+
+        public string UpdateStudent(Student student)
         {
-            using (var dbconn = DbConfig.Connection())
+            using (var conn = new SQLiteConnection(@"Data Source=UnicomTic.db;Version=3;"))
             {
-                string updateQuery = "UPDATE Students SET Name = @name , Address = @address WHERE Id = @id;";
-                SQLiteCommand updateCommand = new SQLiteCommand(updateQuery, dbconn);
-                updateCommand.Parameters.AddWithValue("@name", st.Name);
-                updateCommand.Parameters.AddWithValue("@address", st.Address);
-                updateCommand.Parameters.AddWithValue("@id", st.Id);
+                conn.Open();
+                using (var transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                       
+                        var userCmd = new SQLiteCommand("UPDATE Users SET Username = @Username, Password = @Password, Role = @Role WHERE UserID = @UserID;", conn);
+                        userCmd.Parameters.AddWithValue("@Username", student.Username);
+                        userCmd.Parameters.AddWithValue("@Password", student.Password);
+                        userCmd.Parameters.AddWithValue("@Role", student.Role);
+                        userCmd.Parameters.AddWithValue("@UserID", student.UserId);
+                        userCmd.ExecuteNonQuery();
 
-                updateCommand.ExecuteNonQuery();
+                      
+                        var studentCmd = new SQLiteCommand("UPDATE Students SET Name = @Name, Address = @Address, Age = @Age, CourseID = @CourseID WHERE StudentID = @StudentID;", conn);
+                        studentCmd.Parameters.AddWithValue("@Name", student.Name);
+                        studentCmd.Parameters.AddWithValue("@Address", student.Address);
+                        studentCmd.Parameters.AddWithValue("@Age", student.Age);
+                        studentCmd.Parameters.AddWithValue("@CourseID", student.CourseId);
+                        studentCmd.Parameters.AddWithValue("@StudentID", student.Id);
+                        studentCmd.ExecuteNonQuery();
 
-                return "Student updated successfully";
+                        transaction.Commit();
+                        return "Student updated successfully.";
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        return $"Error: {ex.Message}";
+                    }
+                }
             }
         }
-        // Delete===================================================================================================================================================
 
-        public string deleteStudent(Student st)
+        // ============================================================== Delete =====================================================================================
+
+        public string DeleteStudent(int studentId)
         {
-            using (var dbconn = DbConfig.Connection())
+            using (var conn = new SQLiteConnection(@"Data Source=UnicomTic.db;Version=3;"))
             {
+                conn.Open();
+                using (var transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                      
+                        var studentCmd = new SQLiteCommand("DELETE FROM Students WHERE StudentID = @StudentID;", conn);
+                        studentCmd.Parameters.AddWithValue("@StudentID", studentId);
+                        studentCmd.ExecuteNonQuery();
 
-                string deleteQuery = "DELETE FROM Students WHERE Id = @id";
-                SQLiteCommand deleteCommand = new SQLiteCommand(deleteQuery, dbconn);
-                deleteCommand.Parameters.AddWithValue("@id", st.Id);
+                      
+                        var userCmd = new SQLiteCommand("DELETE FROM Users WHERE UserID = (SELECT UserID FROM Students WHERE StudentID = @StudentID);", conn);
+                        userCmd.Parameters.AddWithValue("@StudentID", studentId);
+                        userCmd.ExecuteNonQuery();
 
-                deleteCommand.ExecuteNonQuery();
-
-                return "Student deleted successfully";
+                        transaction.Commit();
+                        return "Student and associated user deleted successfully.";
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        return $"Error: {ex.Message}";
+                    }
+                }
             }
-
         }
 
-        internal List<Student> GetAllStudents()
-        {
-            throw new NotImplementedException();
-        }
 
-        
+
     }
 }
     

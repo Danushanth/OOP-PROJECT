@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnicomTICManagementSystem.Models;
-using UnicomTICManagementSystem.Repositories;
+﻿using UnicomTICManagementSystem.Models;
 
 namespace UnicomTICManagementSystem.Controllers
 {
-    using System;
     using System.Collections.Generic;
     using System.Data.SQLite;
-
+    using UnicomTicManagementSystem.Repositories;
 
     internal class MarkController
     {
@@ -20,7 +12,7 @@ namespace UnicomTICManagementSystem.Controllers
             
             public string AddStudentScore(Mark mark)
             {
-                using (var dbconn = DbConfig.Connection())
+                using (var dbconn = DbConfig.GetConnection())
                 {
                     dbconn.Open();
 
@@ -42,7 +34,7 @@ namespace UnicomTICManagementSystem.Controllers
             public List<Mark> GetAllMarks()
             {
                 List<Mark> marks = new List<Mark>();
-                using (var conn = DbConfig.Connection())
+                using (var conn = DbConfig.GetConnection())
                 {
                     conn.Open();
 
@@ -69,7 +61,7 @@ namespace UnicomTICManagementSystem.Controllers
             public List<Mark> GetMarksByStudent(int studentId)
             {
                 List<Mark> marks = new List<Mark>();
-                using (var conn = DbConfig.Connection())
+                using (var conn = DbConfig.GetConnection())
                 {
                     conn.Open();
 
@@ -99,7 +91,7 @@ namespace UnicomTICManagementSystem.Controllers
             public List<Mark> GetMarksByExam(int examId)
             {
                 List<Mark> marks = new List<Mark>();
-                using (var conn = DbConfig.Connection())
+                using (var conn = DbConfig.GetConnection())
                 {
                     conn.Open();
 
@@ -128,7 +120,7 @@ namespace UnicomTICManagementSystem.Controllers
            
             public string UpdateMark(Mark mark)
             {
-                using (var dbconn = DbConfig.Connection())
+                using (var dbconn = DbConfig.GetConnection())
                 {
                     dbconn.Open();
 
@@ -150,7 +142,7 @@ namespace UnicomTICManagementSystem.Controllers
             
             public string DeleteMark(int id)
             {
-                using (var dbconn = DbConfig.Connection())
+                using (var dbconn = DbConfig.GetConnection())
                 {
                     dbconn.Open();
 

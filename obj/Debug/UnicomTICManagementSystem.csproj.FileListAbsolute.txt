@@ -12,7 +12,8 @@ Z:\C#\C# Project\UnicomTICManagementSystem\obj\Debug\UnicomTICManagementSystem.c
 Z:\C#\C# Project\UnicomTICManagementSystem\obj\Debug\UnicomTI.449BFD41.Up2Date
 Z:\C#\C# Project\UnicomTICManagementSystem\obj\Debug\UnicomTICManagementSystem.exe
 Z:\C#\C# Project\UnicomTICManagementSystem\obj\Debug\UnicomTICManagementSystem.pdb
-Z:\C#\C# Project\UnicomTICManagementSystem\obj\Debug\UnicomTICManagementSystem.Views.CourseForm.resources
 Z:\C#\C# Project\UnicomTICManagementSystem\obj\Debug\UnicomTICManagementSystem.Views.ManageLecture.resources
 Z:\C#\C# Project\UnicomTICManagementSystem\obj\Debug\UnicomTICManagementSystem.Views.ManageStaff.resources
 Z:\C#\C# Project\UnicomTICManagementSystem\obj\Debug\UnicomTICManagementSystem.Views.ManageStudent.resources
+Z:\C#\C# Project\UnicomTICManagementSystem\obj\Debug\UnicomTICManagementSystem.Views.ManageCoursesForm.resources
+Z:\C#\C# Project\UnicomTICManagementSystem\obj\Debug\UnicomTICManagementSystem.Views.ManageSubjectsForm.resources

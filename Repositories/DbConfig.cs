@@ -4,15 +4,15 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace UnicomTICManagementSystem.Repositories
+namespace UnicomTicManagementSystem.Repositories
 {
-    internal class DbConfig
+    public static class DbConfig
     {
-        public static string connectionstring = "Data Source =unicomtic.db;Version=3;";
-        public static SQLiteConnection Connection()
+        private static string connectionString = "Data Source=UnicomTic.db;Version=3;";
+
+        public static SQLiteConnection GetConnection()
         {
-            var conn = new SQLiteConnection(connectionstring);
+            var conn = new SQLiteConnection(connectionString);
             conn.Open();
             return conn;
         }
