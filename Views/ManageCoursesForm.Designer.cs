@@ -96,6 +96,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDelete);
@@ -103,6 +104,7 @@
             this.Controls.Add(this.dgvCourses);
             this.Controls.Add(this.txtCourseName);
             this.Controls.Add(this.btnAdd);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ManageCoursesForm";
             this.Text = "CourseForm";
             this.Load += new System.EventHandler(this.ManageCoursesForm_Load);

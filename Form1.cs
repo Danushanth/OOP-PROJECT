@@ -21,7 +21,7 @@ namespace UnicomTICManagementSystem
             LoadForm(new MainForm());
         }
 
-        // ===========================================================================================
+        // ===========================================================================================================================
         public void LoadForm(object formObj)
         {
             if (this.mainPanel.Controls.Count > 0)
@@ -36,7 +36,7 @@ namespace UnicomTICManagementSystem
             this.mainPanel.Tag = form;
             form.Show();
         }
-        // ============================================================================================
+        // ==============================================================================================================================
         private void button2_Click(object sender, EventArgs e)
         {
            
@@ -45,7 +45,7 @@ namespace UnicomTICManagementSystem
         {
 
         }
-        //==============================================================================================
+        //==================================================================================================================================
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -64,32 +64,14 @@ namespace UnicomTICManagementSystem
         // LECTURN ===========================================================================================================================
         private void button3_Click(object sender, EventArgs e)
         {
-            try
-            {
-                ManageLecture manageLectureForm = new ManageLecture();
-                manageLectureForm.Show();
-                this.Hide();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error opening Manage Lecture Form: " + ex.Message);
-            }
+            LoadFormInPanel(new ManageLecture());
         }
-        // STAFF ==============================================================================================================================
+        // STAFF =============================================================================================================================
         private void button4_Click(object sender, EventArgs e)
         {
-            try
-            {
-                ManageStaff manageStaffForm = new ManageStaff();
-                manageStaffForm.Show();
-                this.Hide();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error opening Manage Staff Form: " + ex.Message);
-            }
+            LoadFormInPanel(new ManageStaff());
         }
-        // STUDENT ==============================================================================================================================
+        // STUDENT ===========================================================================================================================
         private void button5_Click(object sender, EventArgs e)
         {
             LoadFormInPanel(new ManageStudent());
@@ -97,7 +79,7 @@ namespace UnicomTICManagementSystem
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
         }
-        // ============================================================================================================
+        // ===================================================================================================================================
         private void LoadFormInPanel(Form frm)
         {
             DashBoard.Controls.Clear();
@@ -118,7 +100,7 @@ namespace UnicomTICManagementSystem
         }
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
-
+            
         }
 
     }

@@ -170,6 +170,8 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ManageStaff";
             this.Text = "ManageStaff";
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaff)).EndInit();
