@@ -184,7 +184,7 @@ namespace UnicomTICManagementSystem.Views
         {
             try
             {
-                Form1 Form = new Form1();
+                LoginForm Form = new LoginForm();
                 Form.Show();
                 this.Hide();
             }

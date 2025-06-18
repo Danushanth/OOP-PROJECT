@@ -17,3 +17,4 @@ Z:\C#\C# Project\UnicomTICManagementSystem\obj\Debug\UnicomTICManagementSystem.V
 Z:\C#\C# Project\UnicomTICManagementSystem\obj\Debug\UnicomTICManagementSystem.Views.ManageStudent.resources
 Z:\C#\C# Project\UnicomTICManagementSystem\obj\Debug\UnicomTICManagementSystem.Views.ManageCoursesForm.resources
 Z:\C#\C# Project\UnicomTICManagementSystem\obj\Debug\UnicomTICManagementSystem.Views.ManageSubjectsForm.resources
+Z:\C#\C# Project\UnicomTICManagementSystem\obj\Debug\UnicomTICManagementSystem.Views.ManageTimetable.resources

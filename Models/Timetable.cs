@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace UnicomTICManagementSystem.Models
 {
-    internal class Timetable
+    public class TimetableModel
     {
-        public int TimeTableId {  get; set; }
-        public int Timeslot {  get; set; }
-        public int SubjectId { get; set; }
-
-
-
+        public int Id { get; set; }
+        public string Course { get; set; }
+        public string Subject { get; set; }
+        public string RoomType { get; set; }
+        public string TimeSlot { get; set; }  
     }
+
 }

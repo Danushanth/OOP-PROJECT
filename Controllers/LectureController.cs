@@ -30,6 +30,8 @@ namespace UnicomTicManagementSystem.Controllers
             return list;
         }
 
+
+
         public void AddLecture(Lecture lecture)
         {
             using (var conn = DbConfig.GetConnection())
@@ -42,6 +44,9 @@ namespace UnicomTicManagementSystem.Controllers
                 cmd.ExecuteNonQuery();
             }
         }
+
+
+
 
         public void UpdateLecture(Lecture lecture)
         {
@@ -57,6 +62,8 @@ namespace UnicomTicManagementSystem.Controllers
             }
         }
 
+
+
         public void DeleteLecture(int lectureId)
         {
             using (var conn = DbConfig.GetConnection())
@@ -66,6 +73,8 @@ namespace UnicomTicManagementSystem.Controllers
                 cmd.ExecuteNonQuery();
             }
         }
+
+
 
         public List<string> GetAllSubjects()
         {

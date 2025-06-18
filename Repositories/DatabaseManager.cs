@@ -67,11 +67,12 @@ namespace SchoolManageSystem.Data
                     CREATE TABLE IF NOT EXISTS Timetables (
                         TimetableID INTEGER PRIMARY KEY AUTOINCREMENT,
                         SubjectID INTEGER,
+                        RoomType TEXT,
                         TimeSlot TEXT,
-                        RoomID INTEGER,
-                        FOREIGN KEY(SubjectID) REFERENCES Subjects(SubjectID),
-                        FOREIGN KEY(RoomID) REFERENCES Rooms(RoomID)
+                        FOREIGN KEY (SubjectID) REFERENCES Subjects(SubjectID)
                     );
+
+
 
                     CREATE TABLE IF NOT EXISTS Staffs (
                         StaffId INTEGER PRIMARY KEY AUTOINCREMENT,

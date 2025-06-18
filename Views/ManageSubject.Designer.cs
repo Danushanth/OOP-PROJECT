@@ -140,6 +140,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ManageSubjectsForm";
             this.Text = "ManageSubject";
+            this.Load += new System.EventHandler(this.ManageSubjectsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubjects)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

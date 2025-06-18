@@ -74,7 +74,7 @@ namespace UnicomTICManagementSystem.Views
         {
             try
             {
-                Form1 Form = new Form1();
+                LoginForm Form = new LoginForm();
                 Form.Show();
                 this.Hide();
             }
@@ -133,6 +133,11 @@ namespace UnicomTICManagementSystem.Views
             {
                 MessageBox.Show("Please select a subject to delete.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void ManageSubjectsForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

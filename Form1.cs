@@ -61,6 +61,8 @@ namespace UnicomTICManagementSystem
             }
         }
 
+
+
         // LECTURN ===========================================================================================================================
         private void button3_Click(object sender, EventArgs e)
         {
@@ -72,14 +74,38 @@ namespace UnicomTICManagementSystem
             LoadFormInPanel(new ManageStaff());
         }
         // STUDENT ===========================================================================================================================
+
         private void button5_Click(object sender, EventArgs e)
         {
             LoadFormInPanel(new ManageStudent());
         }
+
+
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
         }
-        // ===================================================================================================================================
+
+
+        private void LoadFormInPanel2(Form frm)
+        {
+            mainPanel.Controls.Clear();
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            mainPanel.Controls.Add(frm);
+            frm.Show();
+        }
+
+        private void LoadFormInPanel1(Form frm)
+        {
+            mainPanel.Controls.Clear(); 
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            mainPanel.Controls.Add(frm); 
+            frm.Show(); 
+        }
+        
         private void LoadFormInPanel(Form frm)
         {
             DashBoard.Controls.Clear();
@@ -89,6 +115,11 @@ namespace UnicomTICManagementSystem
             DashBoard.Controls.Add(frm);
             frm.Show();
         }
+
+
+
+
+
         private void button1_Click_1(object sender, EventArgs e)
         {
             LoadFormInPanel(new ManageCoursesForm());
@@ -96,13 +127,16 @@ namespace UnicomTICManagementSystem
         private void button2_Click_1(object sender, EventArgs e)
         {
             LoadFormInPanel(new ManageSubjectsForm());
-
         }
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
             
         }
 
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            LoadFormInPanel(new ManageTimetable());
+        }
     }
 
 }

@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
@@ -37,13 +40,21 @@
             this.Lecturer = new System.Windows.Forms.Button();
             this.Admin = new System.Windows.Forms.Button();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.DashBoard = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Controls.Add(this.pictureBox4);
+            this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.btnExit);
@@ -52,15 +63,39 @@
             this.panel3.Controls.Add(this.Lecturer);
             this.panel3.Controls.Add(this.Admin);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 39);
+            this.panel3.Location = new System.Drawing.Point(0, 56);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(194, 489);
+            this.panel3.Size = new System.Drawing.Size(194, 472);
             this.panel3.TabIndex = 2;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(0, 324);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Location = new System.Drawing.Point(0, 23);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox4.TabIndex = 8;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(0, 205);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 358);
+            this.button2.Location = new System.Drawing.Point(113, 380);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 6;
@@ -70,7 +105,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 291);
+            this.button1.Location = new System.Drawing.Point(116, 313);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 5;
@@ -94,7 +129,7 @@
             // 
             this.Student.BackColor = System.Drawing.SystemColors.Info;
             this.Student.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Student.Location = new System.Drawing.Point(12, 320);
+            this.Student.Location = new System.Drawing.Point(113, 342);
             this.Student.Name = "Student";
             this.Student.Size = new System.Drawing.Size(75, 32);
             this.Student.TabIndex = 2;
@@ -106,7 +141,7 @@
             // 
             this.Staff.BackColor = System.Drawing.SystemColors.Info;
             this.Staff.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Staff.Location = new System.Drawing.Point(12, 193);
+            this.Staff.Location = new System.Drawing.Point(113, 205);
             this.Staff.Name = "Staff";
             this.Staff.Size = new System.Drawing.Size(75, 30);
             this.Staff.TabIndex = 4;
@@ -118,7 +153,7 @@
             // 
             this.Lecturer.BackColor = System.Drawing.SystemColors.Info;
             this.Lecturer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lecturer.Location = new System.Drawing.Point(12, 104);
+            this.Lecturer.Location = new System.Drawing.Point(113, 130);
             this.Lecturer.Name = "Lecturer";
             this.Lecturer.Size = new System.Drawing.Size(75, 32);
             this.Lecturer.TabIndex = 3;
@@ -130,7 +165,7 @@
             // 
             this.Admin.BackColor = System.Drawing.SystemColors.Info;
             this.Admin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Admin.Location = new System.Drawing.Point(12, 18);
+            this.Admin.Location = new System.Drawing.Point(116, 44);
             this.Admin.Name = "Admin";
             this.Admin.Size = new System.Drawing.Size(75, 29);
             this.Admin.TabIndex = 2;
@@ -140,19 +175,32 @@
             // 
             // mainPanel
             // 
-            this.mainPanel.BackColor = System.Drawing.Color.Transparent;
+            this.mainPanel.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.mainPanel.Controls.Add(this.button3);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(994, 39);
+            this.mainPanel.Size = new System.Drawing.Size(994, 56);
             this.mainPanel.TabIndex = 1;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.LightGray;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(284, 12);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(111, 38);
+            this.button3.TabIndex = 0;
+            this.button3.Text = "TIME TABLE";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // DashBoard
             // 
             this.DashBoard.Dock = System.Windows.Forms.DockStyle.Right;
-            this.DashBoard.Location = new System.Drawing.Point(194, 39);
+            this.DashBoard.Location = new System.Drawing.Point(194, 56);
             this.DashBoard.Name = "DashBoard";
-            this.DashBoard.Size = new System.Drawing.Size(800, 489);
+            this.DashBoard.Size = new System.Drawing.Size(800, 472);
             this.DashBoard.TabIndex = 2;
             this.DashBoard.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
@@ -170,6 +218,10 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.mainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -185,6 +237,10 @@
         private System.Windows.Forms.Panel DashBoard;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

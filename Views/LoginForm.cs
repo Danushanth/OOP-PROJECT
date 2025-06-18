@@ -9,7 +9,7 @@ namespace UnicomTICManagementSystem.Views
         {
             InitializeComponent();
 
-            
+            //comboBox1.Items.Add("select your Role");
             comboBox1.Items.Add("Admin");
             comboBox1.Items.Add("Student");
             comboBox1.Items.Add("Lectures");
@@ -20,6 +20,8 @@ namespace UnicomTICManagementSystem.Views
         private void LoginForm_Load(object sender, EventArgs e)
         {
         }
+
+
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -70,14 +72,13 @@ namespace UnicomTICManagementSystem.Views
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-          
-        }
 
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {          
+        }
         private void label3_Click(object sender, EventArgs e)
-        {
-          
+        {          
         }
     }
 }

@@ -23,9 +23,9 @@ namespace UnicomTICManagementSystem.Views
         {
             InitializeComponent();
             LoadLectures();
-            LoadSubjects();       
+            LoadSubjects();
 
-        // comboBox ===============================================================================
+            // ====================================== COMBOBOX ===========================================================================================
 
             cmbSubject.Items.Add("C#");
             cmbSubject.Items.Add("Python");
@@ -33,6 +33,9 @@ namespace UnicomTICManagementSystem.Views
             cmbSubject.Items.Add("Java Skrept");
             cmbSubject.SelectedIndex = 0;
         }
+
+
+
         private void LoadLectures()
         {
             dgvLectures.DataSource = null;
@@ -41,17 +44,22 @@ namespace UnicomTICManagementSystem.Views
             dgvLectures.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             selectedLectureId = -1;
         }
+
+
+
         private void LoadSubjects()
         {
             cmbSubject.Items.Clear();
             cmbSubject.Items.AddRange(_controller.GetAllSubjects().ToArray());
         }
 
+
+
         private void button4_Click(object sender, EventArgs e)
         {
             try
             {
-                Form1 Form = new Form1();
+                LoginForm Form = new LoginForm();
                 Form.Show();
                 this.Hide();
             }
@@ -60,6 +68,9 @@ namespace UnicomTICManagementSystem.Views
                 MessageBox.Show("Error opening Login Form: " + ex.Message);
             }
         }
+
+
+        // ====================================== ADD ===========================================================================================
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -86,6 +97,7 @@ namespace UnicomTICManagementSystem.Views
             }
         }
 
+        // ====================================== UPDATE ===========================================================================================
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -110,6 +122,8 @@ namespace UnicomTICManagementSystem.Views
             }
         }
 
+        // ====================================== DELETE ===========================================================================================
+
         private void button3_Click(object sender, EventArgs e)
         {
             if (selectedLectureId > 0)
@@ -128,6 +142,9 @@ namespace UnicomTICManagementSystem.Views
                 MessageBox.Show("Select a lecture to delete.");
             }
         }
+
+
+
         // ====================================== DGV BOX ===========================================================================================
 
         private void dgvLectures_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -155,6 +172,9 @@ namespace UnicomTICManagementSystem.Views
             return true;
         }
 
+
+
+
         private void ClearInputs()
         {
             txtName.Clear();
@@ -164,9 +184,10 @@ namespace UnicomTICManagementSystem.Views
             selectedLectureId = -1;
         }
 
+
+
         private void ManageLecture_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

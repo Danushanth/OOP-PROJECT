@@ -53,8 +53,8 @@ namespace UnicomTICManagementSystem.Views
         {
             try
             {
-                Form1 form1 = new Form1();
-                form1.Show();
+                LoginForm Form = new LoginForm();
+                Form.Show();
                 this.Hide();
             }
             catch (Exception ex)
@@ -122,6 +122,11 @@ namespace UnicomTICManagementSystem.Views
             txtName.Clear();
             txtAddress.Clear();
             txtNIC.Clear();
+        }
+
+        private void ManageStaff_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
