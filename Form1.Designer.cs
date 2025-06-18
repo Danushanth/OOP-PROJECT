@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -42,16 +43,19 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.DashBoard = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.mainPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.panel3.BackColor = System.Drawing.Color.Teal;
+            this.panel3.Controls.Add(this.pictureBox3);
             this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Controls.Add(this.pictureBox4);
             this.panel3.Controls.Add(this.pictureBox2);
@@ -63,63 +67,76 @@
             this.panel3.Controls.Add(this.Lecturer);
             this.panel3.Controls.Add(this.Admin);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 56);
+            this.panel3.Location = new System.Drawing.Point(0, 58);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(194, 472);
+            this.panel3.Size = new System.Drawing.Size(194, 470);
             this.panel3.TabIndex = 2;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 324);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(100, 56);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(0, 23);
+            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(3, 112);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 8;
             this.pictureBox4.TabStop = false;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(0, 205);
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(0, 218);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(113, 380);
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Location = new System.Drawing.Point(21, 386);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(59, 23);
             this.button2.TabIndex = 6;
             this.button2.Text = "Strem";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(116, 313);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Location = new System.Drawing.Point(21, 295);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(59, 23);
             this.button1.TabIndex = 5;
             this.button1.Text = "Course";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.SystemColors.Info;
+            this.btnExit.BackColor = System.Drawing.Color.Crimson;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(132, 444);
+            this.btnExit.Location = new System.Drawing.Point(132, 439);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(56, 33);
+            this.btnExit.Size = new System.Drawing.Size(56, 28);
             this.btnExit.TabIndex = 0;
             this.btnExit.Text = "Exti";
             this.btnExit.UseVisualStyleBackColor = false;
@@ -127,9 +144,10 @@
             // 
             // Student
             // 
-            this.Student.BackColor = System.Drawing.SystemColors.Info;
+            this.Student.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.Student.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Student.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Student.Location = new System.Drawing.Point(113, 342);
+            this.Student.Location = new System.Drawing.Point(106, 333);
             this.Student.Name = "Student";
             this.Student.Size = new System.Drawing.Size(75, 32);
             this.Student.TabIndex = 2;
@@ -139,11 +157,12 @@
             // 
             // Staff
             // 
-            this.Staff.BackColor = System.Drawing.SystemColors.Info;
+            this.Staff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.Staff.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Staff.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Staff.Location = new System.Drawing.Point(113, 205);
+            this.Staff.Location = new System.Drawing.Point(106, 227);
             this.Staff.Name = "Staff";
-            this.Staff.Size = new System.Drawing.Size(75, 30);
+            this.Staff.Size = new System.Drawing.Size(75, 31);
             this.Staff.TabIndex = 4;
             this.Staff.Text = "Staff";
             this.Staff.UseVisualStyleBackColor = false;
@@ -151,11 +170,12 @@
             // 
             // Lecturer
             // 
-            this.Lecturer.BackColor = System.Drawing.SystemColors.Info;
+            this.Lecturer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.Lecturer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Lecturer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lecturer.Location = new System.Drawing.Point(113, 130);
+            this.Lecturer.Location = new System.Drawing.Point(106, 122);
             this.Lecturer.Name = "Lecturer";
-            this.Lecturer.Size = new System.Drawing.Size(75, 32);
+            this.Lecturer.Size = new System.Drawing.Size(75, 31);
             this.Lecturer.TabIndex = 3;
             this.Lecturer.Text = "Lecturer";
             this.Lecturer.UseVisualStyleBackColor = false;
@@ -163,9 +183,10 @@
             // 
             // Admin
             // 
-            this.Admin.BackColor = System.Drawing.SystemColors.Info;
+            this.Admin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.Admin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Admin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Admin.Location = new System.Drawing.Point(116, 44);
+            this.Admin.Location = new System.Drawing.Point(106, 34);
             this.Admin.Name = "Admin";
             this.Admin.Size = new System.Drawing.Size(75, 29);
             this.Admin.TabIndex = 2;
@@ -175,34 +196,44 @@
             // 
             // mainPanel
             // 
-            this.mainPanel.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.mainPanel.BackColor = System.Drawing.Color.Teal;
             this.mainPanel.Controls.Add(this.button3);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(994, 56);
+            this.mainPanel.Size = new System.Drawing.Size(994, 58);
             this.mainPanel.TabIndex = 1;
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.LightGray;
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(284, 12);
+            this.button3.Location = new System.Drawing.Point(194, 12);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(111, 38);
+            this.button3.Size = new System.Drawing.Size(99, 40);
             this.button3.TabIndex = 0;
-            this.button3.Text = "TIME TABLE";
+            this.button3.Text = "TimeTable";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // DashBoard
             // 
+            this.DashBoard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.DashBoard.Dock = System.Windows.Forms.DockStyle.Right;
-            this.DashBoard.Location = new System.Drawing.Point(194, 56);
+            this.DashBoard.Location = new System.Drawing.Point(194, 58);
             this.DashBoard.Name = "DashBoard";
-            this.DashBoard.Size = new System.Drawing.Size(800, 472);
+            this.DashBoard.Size = new System.Drawing.Size(800, 470);
             this.DashBoard.TabIndex = 2;
             this.DashBoard.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(3, 22);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
             // 
             // Form1
             // 
@@ -222,6 +253,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.mainPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -241,6 +273,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
 

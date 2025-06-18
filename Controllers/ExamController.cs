@@ -8,5 +8,9 @@ namespace UnicomTICManagementSystem.Controllers
 {
     internal class ExamController
     {
+        //public List<Exam> GetAllConection() 
+        //{
+
+        //}
     }
 }

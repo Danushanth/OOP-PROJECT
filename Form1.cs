@@ -18,7 +18,7 @@ namespace UnicomTICManagementSystem
         public Form1()
         {
             InitializeComponent();
-            LoadForm(new MainForm());
+            LoadForm(new Form1());
         }
 
         // ===========================================================================================================================
@@ -39,7 +39,7 @@ namespace UnicomTICManagementSystem
         // ==============================================================================================================================
         private void button2_Click(object sender, EventArgs e)
         {
-           
+            Application.Run(new AdminForm());
         }
         private void Form1_Load(object sender, EventArgs e)
         {

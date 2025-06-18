@@ -46,35 +46,39 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(158, 55);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.Size = new System.Drawing.Size(63, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Course";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(158, 90);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.Size = new System.Drawing.Size(64, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "Subject";
             // 
             // cmdCourse
             // 
+            this.cmdCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdCourse.FormattingEnabled = true;
             this.cmdCourse.Location = new System.Drawing.Point(245, 55);
             this.cmdCourse.Name = "cmdCourse";
-            this.cmdCourse.Size = new System.Drawing.Size(121, 21);
+            this.cmdCourse.Size = new System.Drawing.Size(166, 26);
             this.cmdCourse.TabIndex = 2;
             this.cmdCourse.SelectedIndexChanged += new System.EventHandler(this.cmdCourse_SelectedIndexChanged);
             // 
             // btnadd
             // 
+            this.btnadd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnadd.Location = new System.Drawing.Point(138, 206);
             this.btnadd.Name = "btnadd";
-            this.btnadd.Size = new System.Drawing.Size(75, 23);
+            this.btnadd.Size = new System.Drawing.Size(75, 34);
             this.btnadd.TabIndex = 4;
             this.btnadd.Text = "ADD";
             this.btnadd.UseVisualStyleBackColor = true;
@@ -82,9 +86,10 @@
             // 
             // btnUpdate
             // 
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.Location = new System.Drawing.Point(271, 206);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(85, 34);
             this.btnUpdate.TabIndex = 5;
             this.btnUpdate.Text = "UPDATE";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -92,9 +97,10 @@
             // 
             // btndelete
             // 
+            this.btndelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btndelete.Location = new System.Drawing.Point(399, 206);
             this.btndelete.Name = "btndelete";
-            this.btndelete.Size = new System.Drawing.Size(75, 23);
+            this.btndelete.Size = new System.Drawing.Size(89, 34);
             this.btndelete.TabIndex = 6;
             this.btndelete.Text = "DELETE";
             this.btndelete.UseVisualStyleBackColor = true;
@@ -102,18 +108,20 @@
             // 
             // cmdSubject
             // 
+            this.cmdSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdSubject.FormattingEnabled = true;
             this.cmdSubject.Location = new System.Drawing.Point(245, 87);
             this.cmdSubject.Name = "cmdSubject";
-            this.cmdSubject.Size = new System.Drawing.Size(121, 21);
+            this.cmdSubject.Size = new System.Drawing.Size(166, 26);
             this.cmdSubject.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(158, 124);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(144, 124);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 13);
+            this.label3.Size = new System.Drawing.Size(95, 18);
             this.label3.TabIndex = 9;
             this.label3.Text = "Room Type";
             // 
@@ -122,38 +130,42 @@
             this.dgvtimetable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvtimetable.Location = new System.Drawing.Point(138, 257);
             this.dgvtimetable.Name = "dgvtimetable";
-            this.dgvtimetable.Size = new System.Drawing.Size(336, 145);
+            this.dgvtimetable.Size = new System.Drawing.Size(350, 163);
             this.dgvtimetable.TabIndex = 10;
             this.dgvtimetable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvtimetable_CellContentClick);
             // 
             // txtTimeslot
             // 
-            this.txtTimeslot.Location = new System.Drawing.Point(245, 150);
+            this.txtTimeslot.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTimeslot.Location = new System.Drawing.Point(245, 165);
             this.txtTimeslot.Name = "txtTimeslot";
-            this.txtTimeslot.Size = new System.Drawing.Size(121, 20);
+            this.txtTimeslot.Size = new System.Drawing.Size(193, 24);
             this.txtTimeslot.TabIndex = 11;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(163, 153);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(147, 167);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 13);
+            this.label4.Size = new System.Drawing.Size(75, 18);
             this.label4.TabIndex = 12;
             this.label4.Text = "TimeSlot";
             // 
             // cmdroomtype
             // 
+            this.cmdroomtype.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdroomtype.FormattingEnabled = true;
             this.cmdroomtype.Location = new System.Drawing.Point(245, 124);
             this.cmdroomtype.Name = "cmdroomtype";
-            this.cmdroomtype.Size = new System.Drawing.Size(121, 21);
+            this.cmdroomtype.Size = new System.Drawing.Size(166, 26);
             this.cmdroomtype.TabIndex = 13;
             // 
             // ManageTimetable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.cmdroomtype);
             this.Controls.Add(this.label4);
