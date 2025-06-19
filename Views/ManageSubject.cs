@@ -17,6 +17,13 @@ namespace UnicomTICManagementSystem.Views
             InitializeComponent();
             LoadCourses();
             LoadSubjects();
+
+            if (UserSession.Role != "Admin")
+            {
+                button1.Enabled = false;
+                button2.Enabled = false;
+                button3.Enabled = false;
+            }
         }
 
         private void LoadCourses()

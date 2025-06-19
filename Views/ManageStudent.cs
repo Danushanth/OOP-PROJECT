@@ -42,6 +42,13 @@ namespace UnicomTICManagementSystem.Views
             txtN.Text = "";
             txtA.Text = "";
             txtAge.Text = string.Empty;
+
+            if (UserSession.Role != "Admin")
+            {
+                btnAdd.Enabled = false;
+                btnUpdate.Enabled = false;
+                btnDelete.Enabled = false;
+            }
         }
 
         

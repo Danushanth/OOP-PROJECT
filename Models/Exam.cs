@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace UnicomTICManagementSystem.Models
 {
-    internal class c
+    public class Exam
     {
-        public string ExamName {  get; set; }
         public int ExamId { get; set; }
-        public string SubjectId { get; set; }
+        public string ExamName { get; set; }
+        public int SubjectId { get; set; }
     }
 }

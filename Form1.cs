@@ -19,6 +19,21 @@ namespace UnicomTICManagementSystem
         {
             InitializeComponent();
            // LoadForm(new Form1());
+           if (UserSession.Role == "Staff" )
+            {
+                Admin.Enabled = false;
+                Lecturer.Enabled = false;
+            }
+           else if (UserSession.Role =="Lecturer")
+            {
+                Admin.Enabled = false;
+                Staff.Enabled = false;
+            }else if (UserSession.Role == "Student")
+            {
+                Admin.Enabled = false;
+                Lecturer.Enabled = false;
+                Staff.Enabled = false;
+            }
         }
 
         // ===========================================================================================================================
@@ -41,99 +56,120 @@ namespace UnicomTICManagementSystem
         {
             AdminForm form = new AdminForm();
             form.Show();
+            this.Hide();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            LoadRoleBasedForm();
+            //LoadRoleBasedForm();
            
         }
-        private void LoadRoleBasedForm()
-        {
-            Form childForm = null;
+        //private void LoadRoleBasedForm()
+        //{
+        //    Form childForm = null;
 
-            switch (UserSession.Role)
-            {
-                case "Admin":
-                    childForm = new AdminForm(); // Or dashboard for admin
-                    break;
-                case "Student":
-                    childForm = new ManageStudent();
-                    break;
-                case "Lectures":
-                    childForm = new ManageLecture();
-                    break;
-                case "Staff":
-                    childForm = new ManageStaff();
-                    break;
-                default:
-                    MessageBox.Show("Invalid role");
-                    return;
-            }
+        //    switch (UserSession.Role)
+        //    {
+        //        case "Admin":
+        //            childForm = new AdminForm(); // Or dashboard for admin
+        //            break;
+        //        case "Student":
+        //            childForm = new ManageStudent();
+        //            break;
+        //        case "Lectures":
+        //            childForm = new ManageLecture();
+        //            break;
+        //        case "Staff":
+        //            childForm = new ManageStaff();
+        //            break;
+        //        default:
+        //            MessageBox.Show("Invalid role");
+        //            return;
+        //    }
 
-            if (childForm != null)
-            {
-                childForm.TopLevel = false;
-                childForm.FormBorderStyle = FormBorderStyle.None;
-                childForm.Dock = DockStyle.Fill;
+        //    if (childForm != null)
+        //    {
+        //        childForm.TopLevel = false;
+        //        childForm.FormBorderStyle = FormBorderStyle.None;
+        //        childForm.Dock = DockStyle.Fill;
 
-                DashBoard.Controls.Clear();      // clear old controls if any
-                DashBoard.Controls.Add(childForm); // add new form
-                childForm.Show();              // show it
-            }
-        }
+        //        DashBoard.Controls.Clear();     
+        //        DashBoard.Controls.Add(childForm);
+        //        childForm.Show();              
+        //    }
+        //}
+
+
 
         //==================================================================================================================================
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                LoginForm loginForm = new LoginForm();
-                loginForm.Show();
-                this.Hide();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error opening Login Form: " + ex.Message);
-            }
+            
+            
+               LoginForm loginForm = new LoginForm();
+               loginForm.Show();
+               this.Hide();
+            
+           
+                         
+            
         }
 
 
 
-        // LECTURN ===========================================================================================================================
+        //======================================================= LECTURN ====================================================================
         private void button3_Click(object sender, EventArgs e)
         {
-           LoadFormInPanel(new ManageLecture());
+            LoadFormInPanel(new ManageLecture());
         }
-        // STAFF =============================================================================================================================
+        //===================================================== STAFF ========================================================================
         private void button4_Click(object sender, EventArgs e)
         {
             LoadFormInPanel(new ManageStaff());
         }
-        // STUDENT ===========================================================================================================================
+        // =================================================  STUDENT ==========================================================================
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (UserSession.Role == "Admin" || UserSession.Role == "Student")
-            {
-                ManageStudent studentForm = new ManageStudent();
-                studentForm.TopLevel = false;
-                studentForm.FormBorderStyle = FormBorderStyle.None;
-                studentForm.Dock = DockStyle.Fill;
-
-                DashBoard.Controls.Clear();       // panelMain = Panel in Form1
-                DashBoard.Controls.Add(studentForm);
-                studentForm.Show();
-            }
-            else
-            {
-                MessageBox.Show("Access Denied", "Permission Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            LoadFormInPanel(new ManageStudent());
         }
 
 
+        
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
+            
+        }
+        private void LoadFormWithPermission(Form form)
+        {
+            if (UserSession.Role == "Admin")
+            {
+                mainPanel.Controls.Clear();
+                form.TopLevel = false;
+                form.FormBorderStyle = FormBorderStyle.None;
+                form.Dock = DockStyle.Fill;
+                mainPanel.Controls.Add(form);
+                form.Show();
+            }
+            else
+            {
+                
+                if ((UserSession.Role == "Student" && form is ManageStudent) ||
+                    (UserSession.Role == "Lectures" && form is ManageLecture) ||
+                    (UserSession.Role == "Staff" && form is ManageStaff))
+                {
+                    mainPanel.Controls.Clear();
+                    form.TopLevel = false;
+                    form.FormBorderStyle = FormBorderStyle.None;
+                    form.Dock = DockStyle.Fill;
+                    mainPanel.Controls.Add(form);
+                    form.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Access Denied. You are not allowed to view this section.", "Permission Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
 
 

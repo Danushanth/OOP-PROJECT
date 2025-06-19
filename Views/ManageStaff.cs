@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UnicomTICManagementSystem.Controllers;
+using UnicomTICManagementSystem.Models;
 
 namespace UnicomTICManagementSystem.Views
 {
@@ -19,6 +20,12 @@ namespace UnicomTICManagementSystem.Views
         {
             InitializeComponent();
             LoadStaff();
+            if (UserSession.Role != "Admin")
+            {
+                button1.Enabled = false;
+                button2.Enabled = false;
+                button3.Enabled = false;
+            }
 
         }
         private void LoadStaff()

@@ -42,6 +42,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.button10 = new System.Windows.Forms.Button();
             this.AdminPanel = new System.Windows.Forms.Panel();
+            this.button11 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -62,6 +63,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel3.Controls.Add(this.button11);
             this.panel3.Controls.Add(this.button9);
             this.panel3.Controls.Add(this.button8);
             this.panel3.Controls.Add(this.button7);
@@ -69,6 +71,7 @@
             this.panel3.Controls.Add(this.button5);
             this.panel3.Controls.Add(this.button6);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(200, 493);
@@ -76,18 +79,19 @@
             // 
             // button9
             // 
-            this.button9.BackColor = System.Drawing.Color.Crimson;
-            this.button9.Location = new System.Drawing.Point(129, 461);
+            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.button9.Location = new System.Drawing.Point(110, 421);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(65, 29);
+            this.button9.Size = new System.Drawing.Size(84, 35);
             this.button9.TabIndex = 0;
-            this.button9.Text = "EXIT";
+            this.button9.Text = "Menu";
             this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
             // 
             this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button8.Location = new System.Drawing.Point(45, 160);
+            this.button8.Location = new System.Drawing.Point(45, 169);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(91, 34);
             this.button8.TabIndex = 5;
@@ -98,7 +102,7 @@
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button7.Location = new System.Drawing.Point(45, 79);
+            this.button7.Location = new System.Drawing.Point(45, 70);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(91, 34);
             this.button7.TabIndex = 4;
@@ -181,7 +185,7 @@
             // 
             // button10
             // 
-            this.button10.BackColor = System.Drawing.Color.Teal;
+            this.button10.BackColor = System.Drawing.Color.MediumSpringGreen;
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.Font = new System.Drawing.Font("High Tower Text", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.Location = new System.Drawing.Point(91, 14);
@@ -190,6 +194,7 @@
             this.button10.TabIndex = 0;
             this.button10.Text = "NEW MEMBERS ADD";
             this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // AdminPanel
             // 
@@ -200,6 +205,17 @@
             this.AdminPanel.Size = new System.Drawing.Size(708, 437);
             this.AdminPanel.TabIndex = 2;
             this.AdminPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.AdminPanel_Paint);
+            // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.Red;
+            this.button11.Location = new System.Drawing.Point(110, 462);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(84, 28);
+            this.button11.TabIndex = 0;
+            this.button11.Text = "Logout";
+            this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // AdminForm
             // 
@@ -235,5 +251,6 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
     }
 }

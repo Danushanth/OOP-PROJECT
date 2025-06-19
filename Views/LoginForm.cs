@@ -43,10 +43,19 @@ namespace UnicomTICManagementSystem.Views
 
                 // 🔐 Save role to global session
                 UserSession.Role = role;
+                if (role == "Admin")
+                {
+                    AdminForm adminForm = new AdminForm();
+                    adminForm.Show();
 
-                // 🔁 Always open Form1
-                Form1 mainForm = new Form1();
-                mainForm.Show();
+                }
+                else
+                {
+                    // 🔁 Always open Form1
+                    Form1 mainForm = new Form1();
+                    mainForm.Show();
+                }
+               
 
                 this.Hide();
             }

@@ -88,6 +88,8 @@ namespace SchoolManageSystem.Data
                         LectureNicNo INTEGER NOT NULL,
                         Subject TEXT NOT NULL
                     );
+                   
+
                 ";
 
 

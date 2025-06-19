@@ -13,6 +13,18 @@ namespace UnicomTICManagementSystem.Views
         {
             InitializeComponent();
             LoadCourses();
+            comboBox1.Items.Add("Software develaper");
+            comboBox1.Items.Add("Software Engneear");
+            comboBox1.Items.Add("Web Development ");
+            comboBox1.Items.Add("Cybersecurity");
+            comboBox1.Items.Add("Artificial Intelligence");
+
+            if (UserSession.Role != "Admin")
+            {
+                btnAdd.Enabled = false;
+                btnUpdate.Enabled = false;
+                btnDelete.Enabled = false;
+            }
         }
 
         private void LoadCourses()
@@ -26,11 +38,11 @@ namespace UnicomTICManagementSystem.Views
         //  ============================================================== ADD ==================================================================================
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtCourseName.Text))
+            if (!string.IsNullOrWhiteSpace(comboBox1.Text))
             {
                // _controller.AddCourse(txtCourseName.Text.Trim());
                 LoadCourses();
-                txtCourseName.Clear();
+                comboBox1.Text = "";
             }
             else
             {
@@ -40,12 +52,12 @@ namespace UnicomTICManagementSystem.Views
         //  =================================================================== UPDATE ===========================================================================
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (dgvCourses.CurrentRow != null && !string.IsNullOrWhiteSpace(txtCourseName.Text))
+            if (dgvCourses.CurrentRow != null && !string.IsNullOrWhiteSpace(comboBox1.Text))
             {
                 int courseId = (int)dgvCourses.CurrentRow.Cells["CourseId"].Value;
                // _controller.UpdateCourse(courseId, txtCourseName.Text.Trim());
                 LoadCourses();
-                txtCourseName.Clear();
+                comboBox1.Text = "";
             }
             else
             {
@@ -64,7 +76,7 @@ namespace UnicomTICManagementSystem.Views
                 {
                    
                     LoadCourses();
-                    txtCourseName.Clear();
+                    comboBox1.Text = "";
                 }
             }
             else
@@ -84,8 +96,13 @@ namespace UnicomTICManagementSystem.Views
         {
             if (dgvCourses.CurrentRow != null)
             {
-                txtCourseName.Text = dgvCourses.CurrentRow.Cells["CourseName"].Value.ToString();
+                comboBox1.Text = dgvCourses.CurrentRow.Cells["CourseName"].Value.ToString();
             }
+        }
+
+        private void txtCourseName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

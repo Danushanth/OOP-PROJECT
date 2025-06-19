@@ -41,3 +41,4 @@ C:\Users\User\OneDrive\Desktop\C#\OOP-PROJECT\bin\Debug\System.Data.SQLite.dll
 C:\Users\User\OneDrive\Desktop\C#\OOP-PROJECT\bin\Debug\System.Data.SQLite.xml
 C:\Users\User\OneDrive\Desktop\C#\OOP-PROJECT\obj\Debug\UnicomTI.449BFD41.Up2Date
 Z:\C#\C# Project\UnicomTICManagementSystem\obj\Debug\UnicomTICManagementSystem.Views.AdminForm.resources
+Z:\C#\C# Project\UnicomTICManagementSystem\obj\Debug\UnicomTICManagementSystem.Views.ExamForm.resources

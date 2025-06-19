@@ -23,7 +23,7 @@ namespace UnicomTICManagementSystem.Views
 
         }
 
-
+// =========================================================================================================================================================================
         public void LoadForm(object formObj)
         {
             Form form = formObj as Form;   
@@ -40,12 +40,10 @@ namespace UnicomTICManagementSystem.Views
         }
 
 
-
+// ===========================================================================================================================================================================
         private void AdminPanel_Paint(object sender, PaintEventArgs e)
         {
-
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             LoadForm(new ManageLecture());
@@ -71,7 +69,7 @@ namespace UnicomTICManagementSystem.Views
             frm.Show();
         }
 
-
+// ===================================================================================================================================================================
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -106,6 +104,23 @@ namespace UnicomTICManagementSystem.Views
         private void button8_Click(object sender, EventArgs e)
         {
             LoadForm(new ManageSubjectsForm());
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Form1 mainForm = new Form1();
+            mainForm.Show();
+            this.Hide();
+        }
+        private void button10_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Hide();
         }
     }
 }

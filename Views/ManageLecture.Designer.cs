@@ -189,7 +189,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ManageLecture";
-            this.Text = "ManageLecture";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.ManageLecture_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLectures)).EndInit();
             this.ResumeLayout(false);
