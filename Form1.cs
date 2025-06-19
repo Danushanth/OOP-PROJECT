@@ -18,7 +18,7 @@ namespace UnicomTICManagementSystem
         public Form1()
         {
             InitializeComponent();
-            LoadForm(new Form1());
+           // LoadForm(new Form1());
         }
 
         // ===========================================================================================================================
@@ -39,12 +39,49 @@ namespace UnicomTICManagementSystem
         // ==============================================================================================================================
         private void button2_Click(object sender, EventArgs e)
         {
-            Application.Run(new AdminForm());
+            AdminForm form = new AdminForm();
+            form.Show();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            LoadRoleBasedForm();
+           
         }
+        private void LoadRoleBasedForm()
+        {
+            Form childForm = null;
+
+            switch (UserSession.Role)
+            {
+                case "Admin":
+                    childForm = new AdminForm(); // Or dashboard for admin
+                    break;
+                case "Student":
+                    childForm = new ManageStudent();
+                    break;
+                case "Lectures":
+                    childForm = new ManageLecture();
+                    break;
+                case "Staff":
+                    childForm = new ManageStaff();
+                    break;
+                default:
+                    MessageBox.Show("Invalid role");
+                    return;
+            }
+
+            if (childForm != null)
+            {
+                childForm.TopLevel = false;
+                childForm.FormBorderStyle = FormBorderStyle.None;
+                childForm.Dock = DockStyle.Fill;
+
+                DashBoard.Controls.Clear();      // clear old controls if any
+                DashBoard.Controls.Add(childForm); // add new form
+                childForm.Show();              // show it
+            }
+        }
+
         //==================================================================================================================================
 
         private void button1_Click(object sender, EventArgs e)
@@ -66,7 +103,7 @@ namespace UnicomTICManagementSystem
         // LECTURN ===========================================================================================================================
         private void button3_Click(object sender, EventArgs e)
         {
-            LoadFormInPanel(new ManageLecture());
+           LoadFormInPanel(new ManageLecture());
         }
         // STAFF =============================================================================================================================
         private void button4_Click(object sender, EventArgs e)
@@ -77,7 +114,21 @@ namespace UnicomTICManagementSystem
 
         private void button5_Click(object sender, EventArgs e)
         {
-            LoadFormInPanel(new ManageStudent());
+            if (UserSession.Role == "Admin" || UserSession.Role == "Student")
+            {
+                ManageStudent studentForm = new ManageStudent();
+                studentForm.TopLevel = false;
+                studentForm.FormBorderStyle = FormBorderStyle.None;
+                studentForm.Dock = DockStyle.Fill;
+
+                DashBoard.Controls.Clear();       // panelMain = Panel in Form1
+                DashBoard.Controls.Add(studentForm);
+                studentForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Access Denied", "Permission Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
 

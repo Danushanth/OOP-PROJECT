@@ -1,67 +1,54 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using UnicomTICManagementSystem.Models;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UnicomTICManagementSystem.Views
 {
     public partial class LoginForm : Form
     {
+       
+        private Dictionary<string, (string Password, string Role)> users = new Dictionary<string, (string, string)>
+        {
+            { "admin", ("admin123", "Admin") },
+            { "student01", ("student123", "Student") },
+            { "lecturer01", ("lec123", "Lectures") },
+            { "staff01", ("staff123", "Staff") }
+        };
+
         public LoginForm()
         {
             InitializeComponent();
-
-            //comboBox1.Items.Add("select your Role");
             comboBox1.Items.Add("Admin");
             comboBox1.Items.Add("Student");
             comboBox1.Items.Add("Lectures");
             comboBox1.Items.Add("Staff");
-            comboBox1.SelectedIndex = 0; 
+
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
         }
 
-
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
+
             string username = txtUserName.Text.Trim();
             string password = txtPassword.Text;
-            string selectedRole = comboBox1.SelectedItem.ToString();
 
-            
-            string validUsername = "Danushanth";
-            string validPassword = "123456";
-
-            if (username == validUsername && password == validPassword)
+            if (users.ContainsKey(username) && users[username].Password == password)
             {
-                switch (selectedRole)
-                {
-                    case "Admin":
-                        Form1 adminForm = new Form1();
-                        adminForm.Show();
-                        break;
+                string role = users[username].Role;
 
-                    case "Student":
-                        ManageStudent studentForm = new ManageStudent(); 
-                        studentForm.Show();
-                        break;
+                // 🔐 Save role to global session
+                UserSession.Role = role;
 
-                    case "Lectures":
-                        ManageLecture lectureForm = new ManageLecture(); 
-                        lectureForm.Show();
-                        break;
+                // 🔁 Always open Form1
+                Form1 mainForm = new Form1();
+                mainForm.Show();
 
-                    case "Staff":
-                        ManageStaff staffForm = new ManageStaff(); 
-                        break;
-
-                    default:
-                        MessageBox.Show("Invalid role selected");
-                        return;
-                }
-
-                this.Hide(); 
+                this.Hide();
             }
             else
             {
@@ -72,13 +59,12 @@ namespace UnicomTICManagementSystem.Views
             }
         }
 
-
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {          
-        }
-        private void label3_Click(object sender, EventArgs e)
-        {          
+        {
+
         }
     }
+
+
+   
 }

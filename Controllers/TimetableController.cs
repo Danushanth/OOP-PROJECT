@@ -43,7 +43,7 @@ namespace UnicomTICManagementSystem.Controllers
         {
             using (var cmd = DbConfig.GetConnection().CreateCommand())
             {
-                cmd.CommandText = "INSERT INTO Timetables (SubjectID, RoomType, TimeSlot) VALUES (@s, @r, @t)";
+                cmd.CommandText = "INSERT INTO Timetables (SubjectID, roomType, timeSlot) VALUES (@s, @r, @t)";
                 cmd.Parameters.AddWithValue("@s", subjectId);
                 cmd.Parameters.AddWithValue("@r", roomType);
                 cmd.Parameters.AddWithValue("@t", timeSlot);

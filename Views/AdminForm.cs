@@ -15,27 +15,27 @@ namespace UnicomTICManagementSystem.Views
         public AdminForm()
         {
             InitializeComponent();
-            LoadForm(new AdminForm());
+            LoadForm(new Form());
         }
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
-          
+
         }
-        
+
 
         public void LoadForm(object formObj)
         {
-            if (this.AdminPanel.Controls.Count > 0)
-            {
-                this.AdminPanel.Controls.RemoveAt(0);
-            }
+            Form form = formObj as Form;   
 
-            ManageStudent form = formObj as ManageStudent;
+            if (form == null) return;    
+
             form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
             form.Dock = DockStyle.Fill;
-            this.AdminPanel.Controls.Add(form);
-            this.AdminPanel.Tag = form;
+
+            AdminPanel.Controls.Clear();
+            AdminPanel.Controls.Add(form);
             form.Show();
         }
 
@@ -43,19 +43,15 @@ namespace UnicomTICManagementSystem.Views
 
         private void AdminPanel_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            LoadFormInPanel(new ManageLecture());
+            LoadForm(new ManageLecture());
         }
 
-        private void LoadFormInPanel(ManageLecture manageLecture)
-        {
-            throw new NotImplementedException();
-        }
-
+// ================================================================================== PANEL SCREEN =============================================================================       
         private void LoadFormInPanel1(AdminForm frm)
         {
             AdminPanel.Controls.Clear();
@@ -79,52 +75,37 @@ namespace UnicomTICManagementSystem.Views
 
         private void button2_Click(object sender, EventArgs e)
         {
-            LoadFormInPanel(new ManageStaff());
+                    
         }
-
-        private void LoadFormInPanel(ManageStaff manageStaff)
-        {
-            throw new NotImplementedException();
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            
-        }
 
-        private void LoadFormInPanel(ManageStudent manageStudent)
-        {
-            throw new NotImplementedException();
-        }
-
+        }     
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
+//======================================================================= VIWE ==========================================================================================
         private void button3_Click_1(object sender, EventArgs e)
         {
-            LoadFormInPanel(new ManageLecture());
+            LoadForm(new ManageLecture());
         }
-
         private void button6_Click(object sender, EventArgs e)
         {
-            LoadFormInPanel(new ManageStudent());
+            LoadForm(new ManageStudent());
         }
-
         private void button5_Click(object sender, EventArgs e)
         {
-            LoadFormInPanel(new ManageStaff());
+            LoadForm(new ManageStaff());
         }
-
         private void button7_Click(object sender, EventArgs e)
         {
-           // LoadFormInPanel(new ManageCoursesForm());
+            LoadForm(new ManageCoursesForm());
         }
-
         private void button8_Click(object sender, EventArgs e)
         {
-            //LoadFormInPanel(new ManageSubjectsForm());
+            LoadForm(new ManageSubjectsForm());
         }
     }
 }
